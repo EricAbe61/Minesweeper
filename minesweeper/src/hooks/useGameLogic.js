@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './Board.css';
-
+import './Cell.css';
 
 // Custom Hook for Minesweeper Game Logic
 function useGameLogic(rows, cols, mines) {

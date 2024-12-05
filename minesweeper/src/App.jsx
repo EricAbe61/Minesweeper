@@ -4,7 +4,7 @@ import Board from './components/Board';
 import useGameLogic from './hooks/useGameLogic';
 import './App.css';
 import './components/Board.css';
-
+import './components/Cell.css';
 
 
 function App() {
