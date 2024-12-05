@@ -5,22 +5,26 @@ import './Board.css';
 
 function Board({ board, onCellClick, onCellRightClick }) {
   return (
-    <div className="board">
-      {board.map((row, rowIndex) => (
-        <div key={rowIndex} className="row">
-          {row.map((cell, colIndex) => (
-            <Cell
-              key={`${rowIndex}-${colIndex}`}
-              isRevealed={cell.isRevealed}
-              isFlagged={cell.isFlagged}
-              onClick={() => onCellClick(rowIndex, colIndex)}
-              onRightClick={() => onCellRightClick(rowIndex, colIndex)}
-            />
-          ))}
-        </div>
-      ))}
+    <div
+      className="board"
+      style={{
+        gridTemplateColumns: `repeat(${board[0].length}, 30px)`, // Set number of columns dynamically
+      }}
+    >
+      {board.map((row, rowIndex) =>
+        row.map((cell, colIndex) => (
+          <Cell
+            key={`${rowIndex}-${colIndex}`}
+            isRevealed={cell.isRevealed}
+            isFlagged={cell.isFlagged}
+            onClick={() => onCellClick(rowIndex, colIndex)}
+            onRightClick={() => onCellRightClick(rowIndex, colIndex)}
+          />
+        ))
+      )}
     </div>
   );
 }
 
 export default Board;
+
